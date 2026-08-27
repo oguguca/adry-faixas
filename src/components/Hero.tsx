@@ -10,12 +10,14 @@ export default function Hero() {
         </p>
 
         <h1>
-          Seu negócio chama atenção <em>antes mesmo de você falar.</em>
+          <span>Seu negócio</span>
+          <span>chama atenção</span>
+          <em>antes de você falar.</em>
         </h1>
 
         <p className="hero__lead">
-          Faixas, fachadas, adesivos, placas e letreiros feitos sob medida,
-          com produção própria e atendimento direto pelo WhatsApp.
+          Faixas, fachadas, adesivos, placas e letreiros sob medida — com
+          produção própria e mais de 30 anos de experiência.
         </p>
 
         <div className="hero__actions">
@@ -38,12 +40,12 @@ export default function Hero() {
             <span>anos de experiência</span>
           </div>
           <div>
-            <strong>Sob medida</strong>
-            <span>produção sob medida</span>
+            <strong>Produção própria</strong>
+            <span>do arquivo ao acabamento</span>
           </div>
           <div>
-            <strong>SP</strong>
-            <span>atendimento próximo</span>
+            <strong>São Paulo</strong>
+            <span>atendimento direto e próximo</span>
           </div>
         </div>
       </div>

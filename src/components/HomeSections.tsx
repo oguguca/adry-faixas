@@ -267,7 +267,7 @@ export default function HomeSections() {
 
       <footer className="footer section-shell">
         <div className="footer__brand">
-          <Image src="/images/logo-adry.jpg" alt="Adry Comunicação Visual" width={150} height={150} />
+          <Image src="/images/logo-adry-dark.png" alt="Adry Comunicação Visual" width={520} height={146} />
           <p>Comunicação visual em São Paulo<br />há mais de 30 anos.</p>
         </div>
         <div className="footer__meta">

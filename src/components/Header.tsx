@@ -18,11 +18,11 @@ export default function Header() {
     <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Adry Faixas — início">
           <Image
-            src="/images/logo-adry.jpg"
+            src="/images/logo-adry-dark.png"
             alt="Adry Comunicação Visual"
-            width={150}
-            height={150}
-            priority
+            width={520}
+            height={146}
+            preload
           />
         </a>
 
