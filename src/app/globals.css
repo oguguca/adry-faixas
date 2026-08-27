@@ -1184,6 +1184,7 @@ button {
     gap: clamp(18px, 2.4vw, 34px);
     margin-top: clamp(28px, 4vh, 40px);
     padding-top: 18px;
+    transform: translateY(clamp(0px, calc(100svh - 780px), 34px));
   }
 
   .hero__proof strong {
@@ -1439,6 +1440,7 @@ button {
     gap: 16px;
     margin-top: 22px;
     padding-top: 14px;
+    transform: translateY(clamp(0px, calc(100svh - 780px), 34px));
   }
 
   .hero__proof strong {
