@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CONTACT_LINK } from "@/lib/constants";
+import HeroVideo from "@/components/HeroVideo";
 
 export default function Hero() {
   return (
@@ -50,13 +51,7 @@ export default function Hero() {
 
       <div className="hero__visual" aria-label="Trabalho produzido pela Adry Faixas">
         <div className="hero__image-main">
-          <Image
-            src="/images/hero-faixa-hd.png"
-            alt="Faixa promocional de açougue produzida pela Adry Faixas"
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 47vw"
-          />
+          <HeroVideo />
         </div>
 
         <div className="hero__image-secondary">
@@ -69,12 +64,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="hero__stamp">
-          <span>Feito para</span>
-          <strong>chamar atenção</strong>
-        </div>
-
-        <span className="hero__caption">Projeto real • São Paulo</span>
+        <span className="hero__caption">Bastidores reais • Adry Faixas</span>
       </div>
     </section>
   );

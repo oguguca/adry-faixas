@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { CONTACT_LINK, INSTAGRAM_LINK } from "@/lib/constants";
+import {
+  CONTACT_LINK,
+  EMAIL,
+  EMAIL_LINK,
+  INSTAGRAM_LINK,
+} from "@/lib/constants";
 
 const SERVICES = [
   {
@@ -40,42 +45,36 @@ const PROJECTS = [
     alt: "Fachada verde de clínica odontológica com adesivação de vitrine",
     category: "Fachada + adesivo",
     title: "MAB Odontologia",
-    className: "project-card--wide",
   },
   {
     src: "/images/banner-churrasco.jpg",
     alt: "Banner amarelo e vinho com cardápio de churrasco",
     category: "Banner",
     title: "Comunicação promocional",
-    className: "project-card--tall",
   },
   {
     src: "/images/adesivo-freezer.webp",
     alt: "Freezer adesivado em preto com ilustrações de cortes de carne",
     category: "Adesivação",
     title: "Palácio Casa de Carnes",
-    className: "",
   },
   {
     src: "/images/fachada-mega-beef.webp",
     alt: "Fachada de açougue com painéis e faixas promocionais coloridas",
     category: "Fachada completa",
     title: "Casa de Carnes Mega Beef",
-    className: "project-card--wide",
   },
   {
     src: "/images/adesivo-escola.webp",
     alt: "Parede escolar adesivada com palavras coloridas",
     category: "Adesivo de parede",
     title: "Ambientação escolar",
-    className: "project-card--tall",
   },
   {
     src: "/images/placa-mecanica.webp",
     alt: "Placa externa preta e laranja para oficina mecânica",
     category: "Placa",
     title: "Oficina Redenção",
-    className: "",
   },
 ];
 
@@ -125,7 +124,7 @@ export default function HomeSections() {
 
         <div className="project-grid section-shell">
           {PROJECTS.map((project) => (
-            <article className={`project-card ${project.className}`} key={project.src}>
+            <article className="project-card" key={project.src}>
               <div className="project-card__image">
                 <Image
                   src={project.src}
@@ -191,14 +190,19 @@ export default function HomeSections() {
             Mostre o que você precisa. A gente ajuda a transformar em uma
             comunicação visual que funciona de verdade.
           </p>
-          <a
-            className="button button--light"
-            href={CONTACT_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Pedir um orçamento <span aria-hidden="true">↗</span>
-          </a>
+          <div className="contact__actions">
+            <a
+              className="button button--light"
+              href={CONTACT_LINK}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Pedir um orçamento <span aria-hidden="true">↗</span>
+            </a>
+            <a className="contact__email" href={EMAIL_LINK}>
+              {EMAIL} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -214,6 +218,7 @@ export default function HomeSections() {
         </div>
         <div className="footer__meta">
           <span>São Paulo — SP</span>
+          <a href={EMAIL_LINK}>{EMAIL}</a>
           <a href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">
             Instagram ↗
           </a>
