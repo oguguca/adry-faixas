@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import {
   CONTACT_LINK,
   EMAIL,
@@ -46,37 +47,37 @@ const SERVICES = [
 
 const PROJECTS = [
   {
-    src: "/images/fachada-odontologia.jpg",
+    src: "/images/fachada-odontologia-hq.webp",
     alt: "Fachada verde de clínica odontológica com adesivação de vitrine",
     category: "Fachada + adesivo",
     title: "MAB Odontologia",
   },
   {
-    src: "/images/banner-churrasco.jpg",
+    src: "/images/banner-churrasco-hq.webp",
     alt: "Banner amarelo e vinho com cardápio de churrasco",
     category: "Banner promocional",
     title: "Oferta que se lê de longe",
   },
   {
-    src: "/images/adesivo-freezer.webp",
+    src: "/images/adesivo-freezer-hq.webp",
     alt: "Freezer adesivado em preto com ilustrações de cortes de carne",
     category: "Adesivação",
     title: "Palácio Casa de Carnes",
   },
   {
-    src: "/images/fachada-mega-beef.webp",
+    src: "/images/fachada-mega-beef-hq.webp",
     alt: "Fachada de açougue com painéis e faixas promocionais coloridas",
     category: "Fachada completa",
     title: "Casa de Carnes Mega Beef",
   },
   {
-    src: "/images/adesivo-escola.webp",
+    src: "/images/adesivo-escola-hq.webp",
     alt: "Parede escolar adesivada com palavras coloridas",
     category: "Adesivo de parede",
     title: "Ambientação escolar",
   },
   {
-    src: "/images/placa-mecanica.webp",
+    src: "/images/placa-mecanica-hq.webp",
     alt: "Placa externa preta e laranja para oficina mecânica",
     category: "Placa externa",
     title: "Oficina Redenção",
@@ -129,7 +130,7 @@ export default function HomeSections() {
       </div>
 
       <section className="services section-shell" id="servicos">
-        <div className="section-heading">
+        <div className="section-heading" data-reveal="up">
           <p className="section-kicker"><span>02</span> O que fazemos</p>
           <h2>Uma equipe.<br /><em>Todas as etapas.</em></h2>
           <p>
@@ -139,8 +140,13 @@ export default function HomeSections() {
         </div>
 
         <div className="services-list">
-          {SERVICES.map((service) => (
-            <article className="service-row" key={service.number}>
+          {SERVICES.map((service, index) => (
+            <article
+              className="service-row"
+              data-reveal="up"
+              key={service.number}
+              style={{ "--reveal-delay": `${index * 55}ms` } as CSSProperties}
+            >
               <span className="service-row__number">/{service.number}</span>
               <div>
                 <h3>{service.title}</h3>
@@ -154,7 +160,7 @@ export default function HomeSections() {
       </section>
 
       <section className="quote-bridge">
-        <div className="quote-bridge__content section-shell">
+        <div className="quote-bridge__content section-shell" data-reveal="up">
           <p>Já sabe o que precisa?</p>
           <h2>Envie uma foto e as medidas. A gente ajuda a fechar o formato certo.</h2>
           <a className="button button--orange" href={CONTACT_LINK} target="_blank" rel="noreferrer">
@@ -165,11 +171,11 @@ export default function HomeSections() {
 
       <section className="portfolio" id="portfolio">
         <div className="portfolio__heading section-shell">
-          <div className="section-heading section-heading--light">
+          <div className="section-heading section-heading--light" data-reveal="up">
             <p className="section-kicker"><span>03</span> Trabalhos reais</p>
             <h2>Sem promessa vazia.<br /><em>Trabalho na rua.</em></h2>
           </div>
-          <div className="portfolio__intro">
+          <div className="portfolio__intro" data-reveal="up">
             <p>Projetos produzidos para negócios que precisavam aparecer, informar e vender melhor.</p>
             <a href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">
               Ver o Instagram <span aria-hidden="true">↗</span>
@@ -179,9 +185,19 @@ export default function HomeSections() {
 
         <div className="project-grid section-shell">
           {PROJECTS.map((project, index) => (
-            <article className="project-card" key={project.src}>
+            <article
+              className="project-card"
+              data-reveal="up"
+              key={project.src}
+              style={{ "--reveal-delay": `${(index % 3) * 80}ms` } as CSSProperties}
+            >
               <div className="project-card__image">
-                <Image src={project.src} alt={project.alt} fill sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 66vw" />
+                <Image
+                  src={project.src}
+                  alt={project.alt}
+                  fill
+                  sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                />
               </div>
               <span className="project-card__index">0{index + 1}</span>
               <div className="project-card__caption">
@@ -194,15 +210,20 @@ export default function HomeSections() {
       </section>
 
       <section className="about" id="sobre">
-        <div className="about__media">
-          <Image src="/images/fachada-adry-real.webp" alt="Fachada real da Adry Comunicação Visual em São Paulo" fill sizes="(max-width: 900px) 100vw, 52vw" />
+        <div className="about__media" data-reveal="left">
+          <Image
+            src="/images/fachada-adry-real-hq.webp"
+            alt="Fachada real da Adry Comunicação Visual em São Paulo"
+            fill
+            sizes="(max-width: 900px) 100vw, 52vw"
+          />
           <div className="about__media-note">
             <span>Nossa fachada • São Paulo</span>
             <strong>É daqui que sua marca<br />ganha a rua.</strong>
           </div>
         </div>
 
-        <div className="about__content">
+        <div className="about__content" data-reveal="right">
           <p className="section-kicker"><span>04</span> A Adry</p>
           <h2>Tem coisa que só o tempo ensina.</h2>
           <div className="about__copy">
@@ -224,7 +245,7 @@ export default function HomeSections() {
       </section>
 
       <section className="method section-shell">
-        <div className="section-heading">
+        <div className="section-heading" data-reveal="up">
           <p className="section-kicker"><span>05</span> Como funciona</p>
           <h2>Do pedido à entrega,<br /><em>sem complicação.</em></h2>
           <p>
@@ -234,8 +255,12 @@ export default function HomeSections() {
         </div>
 
         <div className="process" aria-label="Etapas do atendimento">
-          {PROCESS.map((step) => (
-            <article key={step.number}>
+          {PROCESS.map((step, index) => (
+            <article
+              data-reveal="up"
+              key={step.number}
+              style={{ "--reveal-delay": `${index * 75}ms` } as CSSProperties}
+            >
               <span>{step.number}</span>
               <h3>{step.title}</h3>
               <p>{step.description}</p>
@@ -246,11 +271,15 @@ export default function HomeSections() {
 
       <section className="contact" id="contato">
         <div className="contact__content section-shell">
-          <div>
+          <div data-reveal="up">
             <p className="section-kicker"><span>06</span> Vamos começar?</p>
             <h2>Mande uma foto do espaço. A conversa começa por aí.</h2>
           </div>
-          <div className="contact__aside">
+          <div
+            className="contact__aside"
+            data-reveal="up"
+            style={{ "--reveal-delay": "90ms" } as CSSProperties}
+          >
             <p>
               Conte o que precisa, envie as medidas aproximadas e fale direto
               com a Adry. Sem formulário longo e sem enrolação.
@@ -265,7 +294,7 @@ export default function HomeSections() {
         </div>
       </section>
 
-      <footer className="footer section-shell">
+      <footer className="footer section-shell" data-reveal="up">
         <div className="footer__brand">
           <Image src="/images/logo-adry-dark.png" alt="Adry Comunicação Visual" width={520} height={146} />
           <p>Comunicação visual em São Paulo<br />há mais de 30 anos.</p>

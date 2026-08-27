@@ -52,7 +52,7 @@ export default function HeroVideo() {
         playsInline
         preload="auto"
         disablePictureInPicture
-        poster="/images/hero-bastidores-poster.jpg"
+        poster="/images/hero-bastidores-poster-hq.webp"
         aria-label="Bastidores da Adry: impressão, produção manual, instalação e trabalho finalizado"
         onCanPlay={() => void playVideo()}
         onPlaying={() => setPlayBlocked(false)}
