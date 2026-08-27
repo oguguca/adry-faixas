@@ -1,90 +1,88 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-import { WHATSAPP_LINK } from "@/lib/constants";
+import { CONTACT_LINK } from "@/lib/constants";
 
 const NAV_LINKS = [
   { label: "Serviços", href: "#servicos" },
-  { label: "Portfólio", href: "#portfolio" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Contato", href: "#contato" },
+  { label: "Projetos", href: "#portfolio" },
+  { label: "A Adry", href: "#sobre" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-black text-white">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a href="#" className="text-lg font-bold tracking-wide">
-          Adry Faixas
+    <>
+      <div className="announcement">
+        <span>Comunicação visual em São Paulo</span>
+        <span className="announcement__dot" aria-hidden="true" />
+        <span>Mais de 30 anos de experiência</span>
+      </div>
+
+      <header className="site-header">
+        <a className="brand" href="#inicio" aria-label="Adry Faixas — início">
+          <Image
+            src="/images/logo-adry.jpg"
+            alt="Adry Comunicação Visual"
+            width={150}
+            height={150}
+            priority
+          />
         </a>
 
-        {/* Menu desktop */}
-        <nav
-          className="hidden items-center gap-8 md:flex"
-          aria-label="Menu principal"
-        >
+        <nav className="desktop-nav" aria-label="Navegação principal">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/90 hover:text-orange-500"
-            >
+            <a key={link.href} href={link.href}>
               {link.label}
             </a>
           ))}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-400"
-          >
-            Orçamento via WhatsApp
-          </a>
         </nav>
 
-        {/* Botão hambúrguer mobile */}
+        <a
+          className="button button--dark header-cta"
+          href={CONTACT_LINK}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Pedir orçamento <span aria-hidden="true">↗</span>
+        </a>
+
         <button
+          className="menu-toggle"
           type="button"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className="h-0.5 w-6 bg-white" />
-          <span className="h-0.5 w-6 bg-white" />
-          <span className="h-0.5 w-6 bg-white" />
+          <span />
+          <span />
         </button>
-      </div>
 
-      {/* Menu mobile */}
-      {menuOpen && (
-        <nav
-          className="flex flex-col gap-4 border-t border-white/10 px-4 py-4 md:hidden"
-          aria-label="Menu mobile"
-        >
-          {NAV_LINKS.map((link) => (
+        {menuOpen && (
+          <nav className="mobile-nav" aria-label="Navegação mobile">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
             <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/90"
+              className="button button--orange"
+              href={CONTACT_LINK}
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setMenuOpen(false)}
             >
-              {link.label}
+              Pedir orçamento <span aria-hidden="true">↗</span>
             </a>
-          ))}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-orange-500 px-4 py-2 text-center text-sm font-semibold text-black"
-            onClick={() => setMenuOpen(false)}
-          >
-            Orçamento via WhatsApp
-          </a>
-        </nav>
-      )}
-    </header>
+          </nav>
+        )}
+      </header>
+    </>
   );
 }

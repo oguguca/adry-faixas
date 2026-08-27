@@ -1,8 +1,5 @@
-// TODO: substituir pelo número real da Adry Faixas (formato: 55DDDNUMERO, apenas dígitos)
-export const WHATSAPP_NUMBER = "SEU_NUMERO_AQUI";
+export const INSTAGRAM_LINK = "https://www.instagram.com/adry_faixas/";
 
-export const WHATSAPP_MESSAGE = "Olá! Gostaria de solicitar um orçamento.";
-
-export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_MESSAGE
-)}`;
+// O Instagram é o contato público disponível no momento. Quando o número
+// comercial for confirmado, este link pode ser trocado por um wa.me.
+export const CONTACT_LINK = INSTAGRAM_LINK;
