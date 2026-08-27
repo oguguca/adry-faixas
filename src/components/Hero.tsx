@@ -51,7 +51,7 @@ export default function Hero() {
       <div className="hero__visual" aria-label="Trabalho produzido pela Adry Faixas">
         <div className="hero__image-main">
           <Image
-            src="/images/hero-faixa.jpg"
+            src="/images/hero-faixa-hd.png"
             alt="Faixa promocional de açougue produzida pela Adry Faixas"
             fill
             priority

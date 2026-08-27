@@ -1,5 +1,6 @@
 export const INSTAGRAM_LINK = "https://www.instagram.com/adry_faixas/";
 
-// O Instagram é o contato público disponível no momento. Quando o número
-// comercial for confirmado, este link pode ser trocado por um wa.me.
-export const CONTACT_LINK = INSTAGRAM_LINK;
+export const WHATSAPP_LINK =
+  "https://wa.me/5511940390256?countryName=BR&countryCode=55&phoneNumber=11940390256";
+
+export const CONTACT_LINK = WHATSAPP_LINK;
