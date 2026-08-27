@@ -55,13 +55,14 @@ export default function Hero() {
 
         <div className="hero__video-meta">
           <span>Bastidores reais</span>
-          <span>Do arquivo à instalação</span>
+          <span>Do arquivo ao resultado</span>
         </div>
 
         <div className="hero__video-steps" aria-label="Etapas exibidas no vídeo">
           <span><b>01</b> Impressão</span>
           <span><b>02</b> Produção</span>
           <span><b>03</b> Instalação</span>
+          <span><b>04</b> Resultado</span>
         </div>
       </div>
     </section>
