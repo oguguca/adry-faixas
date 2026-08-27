@@ -195,10 +195,10 @@ export default function HomeSections() {
 
       <section className="about" id="sobre">
         <div className="about__media">
-          <Image src="/images/producao-artesanal.jpg" alt="Profissional da Adry produzindo manualmente uma faixa promocional" fill sizes="(max-width: 900px) 100vw, 52vw" />
+          <Image src="/images/fachada-adry-real.webp" alt="Fachada real da Adry Comunicação Visual em São Paulo" fill sizes="(max-width: 900px) 100vw, 52vw" />
           <div className="about__media-note">
-            <span>Bastidor real</span>
-            <strong>Produzido de perto.<br />Conferido de perto.</strong>
+            <span>Nossa fachada • São Paulo</span>
+            <strong>É daqui que sua marca<br />ganha a rua.</strong>
           </div>
         </div>
 
