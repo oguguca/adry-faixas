@@ -11,31 +11,36 @@ const SERVICES = [
     number: "01",
     title: "Faixas & banners",
     description:
-      "Comunicação promocional em formatos sob medida, com impressão de alto impacto para rua, loja e eventos.",
+      "Formatos sob medida para promoções, inaugurações, eventos e comunicação de rua.",
+    use: "Lojas, eventos e ofertas",
   },
   {
     number: "02",
     title: "Fachadas",
     description:
-      "Projetos que organizam a presença da sua marca e fazem o ponto comercial ser reconhecido de longe.",
+      "Projetos que organizam a presença da marca e fazem o ponto comercial ser reconhecido de longe.",
+    use: "Comércio e serviços",
   },
   {
     number: "03",
     title: "Adesivos",
     description:
-      "Aplicação em vitrines, paredes, veículos, equipamentos e superfícies para transformar ambientes inteiros.",
+      "Aplicação em vitrines, paredes, veículos e equipamentos, com acabamento pensado para cada superfície.",
+    use: "Vitrines e ambientes",
   },
   {
     number: "04",
     title: "Placas",
     description:
-      "Sinalização comercial e informativa com leitura clara, boa resistência e acabamento profissional.",
+      "Sinalização comercial e informativa com leitura rápida, boa resistência e visual profissional.",
+    use: "Sinalização e divulgação",
   },
   {
     number: "05",
     title: "Letreiros",
     description:
-      "Letras e elementos de destaque que levam identidade, volume e personalidade à sua fachada.",
+      "Letras e elementos de destaque que levam identidade, volume e personalidade para a fachada.",
+    use: "Presença de marca",
   },
 ];
 
@@ -49,8 +54,8 @@ const PROJECTS = [
   {
     src: "/images/banner-churrasco.jpg",
     alt: "Banner amarelo e vinho com cardápio de churrasco",
-    category: "Banner",
-    title: "Comunicação promocional",
+    category: "Banner promocional",
+    title: "Oferta que se lê de longe",
   },
   {
     src: "/images/adesivo-freezer.webp",
@@ -73,37 +78,74 @@ const PROJECTS = [
   {
     src: "/images/placa-mecanica.webp",
     alt: "Placa externa preta e laranja para oficina mecânica",
-    category: "Placa",
+    category: "Placa externa",
     title: "Oficina Redenção",
   },
 ];
 
+const PROCESS = [
+  {
+    number: "01",
+    title: "Mande a ideia",
+    description: "Uma foto, as medidas e o que você precisa comunicar já ajudam a começar.",
+  },
+  {
+    number: "02",
+    title: "A gente orienta",
+    description: "Indicamos formato, material e acabamento adequados para o seu uso.",
+  },
+  {
+    number: "03",
+    title: "Produzimos",
+    description: "Cada peça passa pela produção e pelo acabamento com atenção de perto.",
+  },
+  {
+    number: "04",
+    title: "Sua marca aparece",
+    description: "O projeto segue pronto para instalar, divulgar e trabalhar pelo seu negócio.",
+  },
+];
+
+const TICKER_ITEMS = ["Faixas", "Fachadas", "Adesivos", "Placas", "Letreiros"];
+
+function TickerGroup({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <div className="ticker__group" aria-hidden={hidden || undefined}>
+      {TICKER_ITEMS.map((item) => (
+        <span key={item}>{item}<i aria-hidden="true">✦</i></span>
+      ))}
+    </div>
+  );
+}
+
 export default function HomeSections() {
   return (
     <>
-      <div className="ticker" aria-label="Produtos oferecidos">
-        <div>
-          <span>Faixas</span><i>✦</i><span>Fachadas</span><i>✦</i>
-          <span>Adesivos</span><i>✦</i><span>Placas</span><i>✦</i>
-          <span>Letreiros</span><i>✦</i><span>Feito em São Paulo</span>
+      <div className="ticker" aria-label="Soluções oferecidas pela Adry Faixas">
+        <div className="ticker__track">
+          <TickerGroup />
+          <TickerGroup hidden />
         </div>
       </div>
 
       <section className="services section-shell" id="servicos">
         <div className="section-heading">
           <p className="section-kicker"><span>02</span> O que fazemos</p>
-          <h2>Do primeiro olhar ao <em>resultado final.</em></h2>
+          <h2>Uma equipe.<br /><em>Todas as etapas.</em></h2>
           <p>
-            Soluções de comunicação visual pensadas para apresentar, sinalizar
-            e vender — sempre com produção sob medida.
+            Da arte à instalação, você resolve sua comunicação visual com quem
+            conhece material, acabamento e o dia a dia de quem vende.
           </p>
         </div>
 
         <div className="services-list">
           {SERVICES.map((service) => (
             <article className="service-row" key={service.number}>
-              <span className="service-row__number">{service.number}</span>
-              <h3>{service.title}</h3>
+              <span className="service-row__number">/{service.number}</span>
+              <div>
+                <h3>{service.title}</h3>
+                <span className="service-row__use">{service.use}</span>
+              </div>
               <p>{service.description}</p>
               <span className="service-row__arrow" aria-hidden="true">↗</span>
             </article>
@@ -111,28 +153,37 @@ export default function HomeSections() {
         </div>
       </section>
 
+      <section className="quote-bridge">
+        <div className="quote-bridge__content section-shell">
+          <p>Já sabe o que precisa?</p>
+          <h2>Envie uma foto e as medidas. A gente ajuda a fechar o formato certo.</h2>
+          <a className="button button--orange" href={CONTACT_LINK} target="_blank" rel="noreferrer">
+            Conversar no WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
       <section className="portfolio" id="portfolio">
         <div className="portfolio__heading section-shell">
           <div className="section-heading section-heading--light">
             <p className="section-kicker"><span>03</span> Trabalhos reais</p>
-            <h2>Projetos que já estão <em>nas ruas.</em></h2>
+            <h2>Sem promessa vazia.<br /><em>Trabalho na rua.</em></h2>
           </div>
-          <a href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">
-            Ver mais no Instagram <span aria-hidden="true">↗</span>
-          </a>
+          <div className="portfolio__intro">
+            <p>Projetos produzidos para negócios que precisavam aparecer, informar e vender melhor.</p>
+            <a href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">
+              Ver o Instagram <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
 
         <div className="project-grid section-shell">
-          {PROJECTS.map((project) => (
+          {PROJECTS.map((project, index) => (
             <article className="project-card" key={project.src}>
               <div className="project-card__image">
-                <Image
-                  src={project.src}
-                  alt={project.alt}
-                  fill
-                  sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                />
+                <Image src={project.src} alt={project.alt} fill sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 66vw" />
               </div>
+              <span className="project-card__index">0{index + 1}</span>
               <div className="project-card__caption">
                 <span>{project.category}</span>
                 <h3>{project.title}</h3>
@@ -143,97 +194,92 @@ export default function HomeSections() {
       </section>
 
       <section className="about" id="sobre">
-        <div className="about__intro section-shell">
-          <p className="section-kicker"><span>04</span> Por que a Adry</p>
-          <h2>
-            A experiência que a sua ideia <em>merece.</em>
-          </h2>
-          <div className="about__copy">
-            <p>
-              Há mais de 30 anos, a Adry Faixas ajuda negócios de São Paulo a
-              ocuparem espaço com clareza, personalidade e presença.
-            </p>
-            <p>
-              Cada projeto nasce de uma necessidade real: atrair mais olhares,
-              organizar uma fachada, sinalizar melhor ou dar vida a um ambiente.
-            </p>
+        <div className="about__media">
+          <Image src="/images/producao-artesanal.jpg" alt="Profissional da Adry produzindo manualmente uma faixa promocional" fill sizes="(max-width: 900px) 100vw, 52vw" />
+          <div className="about__media-note">
+            <span>Bastidor real</span>
+            <strong>Produzido de perto.<br />Conferido de perto.</strong>
           </div>
         </div>
 
-        <div className="process section-shell" aria-label="Como funciona">
-          <article>
-            <span>01 / Conversa</span>
-            <h3>Você conta a ideia.</h3>
-            <p>Entendemos o espaço, a aplicação e o resultado que precisa alcançar.</p>
-          </article>
-          <article>
-            <span>02 / Produção</span>
-            <h3>A gente dá forma.</h3>
-            <p>Preparamos o material com atenção à leitura, cor e acabamento.</p>
-          </article>
-          <article>
-            <span>03 / Entrega</span>
-            <h3>Sua marca ganha a rua.</h3>
-            <p>Finalizamos o projeto pronto para cumprir sua função no dia a dia.</p>
-          </article>
+        <div className="about__content">
+          <p className="section-kicker"><span>04</span> A Adry</p>
+          <h2>Tem coisa que só o tempo ensina.</h2>
+          <div className="about__copy">
+            <p>
+              Há mais de 30 anos, a Adry ajuda negócios de São Paulo a ocuparem
+              espaço com comunicação visual clara, resistente e bem acabada.
+            </p>
+            <p>
+              Aqui o trabalho não some depois do orçamento: acompanhamos a ideia,
+              a produção e o resultado final.
+            </p>
+          </div>
+          <div className="about__facts" aria-label="Diferenciais da Adry">
+            <span>Atendimento direto</span>
+            <span>Produção sob medida</span>
+            <span>Experiência prática</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="method section-shell">
+        <div className="section-heading">
+          <p className="section-kicker"><span>05</span> Como funciona</p>
+          <h2>Do pedido à entrega,<br /><em>sem complicação.</em></h2>
+          <p>
+            Um processo simples, com conversa direta e decisões que fazem
+            sentido para o seu espaço e para o seu orçamento.
+          </p>
+        </div>
+
+        <div className="process" aria-label="Etapas do atendimento">
+          {PROCESS.map((step) => (
+            <article key={step.number}>
+              <span>{step.number}</span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="contact" id="contato">
-        <div className="contact__texture" aria-hidden="true">
-          ADRY ADRY ADRY
-        </div>
         <div className="contact__content section-shell">
-          <p className="section-kicker"><span>05</span> Vamos conversar?</p>
-          <h2>Tem uma ideia em mente?</h2>
-          <p>
-            Mostre o que você precisa. A gente ajuda a transformar em uma
-            comunicação visual que funciona de verdade.
-          </p>
-          <div className="contact__actions">
-            <a
-              className="button button--light"
-              href={CONTACT_LINK}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Pedir um orçamento <span aria-hidden="true">↗</span>
-            </a>
-            <a className="contact__email" href={EMAIL_LINK}>
-              {EMAIL} <span aria-hidden="true">↗</span>
-            </a>
+          <div>
+            <p className="section-kicker"><span>06</span> Vamos começar?</p>
+            <h2>Mande uma foto do espaço. A conversa começa por aí.</h2>
+          </div>
+          <div className="contact__aside">
+            <p>
+              Conte o que precisa, envie as medidas aproximadas e fale direto
+              com a Adry. Sem formulário longo e sem enrolação.
+            </p>
+            <div className="contact__actions">
+              <a className="button button--dark" href={CONTACT_LINK} target="_blank" rel="noreferrer">
+                Pedir orçamento <span aria-hidden="true">↗</span>
+              </a>
+              <a className="contact__email" href={EMAIL_LINK}>{EMAIL} <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </div>
       </section>
 
       <footer className="footer section-shell">
         <div className="footer__brand">
-          <Image
-            src="/images/logo-adry.jpg"
-            alt="Adry Comunicação Visual"
-            width={150}
-            height={150}
-          />
-          <p>Comunicação visual há mais de 30 anos.</p>
+          <Image src="/images/logo-adry.jpg" alt="Adry Comunicação Visual" width={150} height={150} />
+          <p>Comunicação visual em São Paulo<br />há mais de 30 anos.</p>
         </div>
         <div className="footer__meta">
           <span>São Paulo — SP</span>
           <a href={EMAIL_LINK}>{EMAIL}</a>
-          <a href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">
-            Instagram ↗
-          </a>
+          <a href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">Instagram ↗</a>
         </div>
-        <p className="footer__copyright">© 2026 Adry Faixas</p>
+        <p className="footer__copyright">© 2026 Adry Faixas — Comunicação Visual</p>
       </footer>
 
-      <a
-        className="floating-contact"
-        href={CONTACT_LINK}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Pedir orçamento com a Adry Faixas"
-      >
-        <span>Falar agora</span>
+      <a className="floating-contact" href={CONTACT_LINK} target="_blank" rel="noreferrer" aria-label="Pedir orçamento pelo WhatsApp">
+        <span>Orçamento</span>
         <strong aria-hidden="true">↗</strong>
       </a>
     </>

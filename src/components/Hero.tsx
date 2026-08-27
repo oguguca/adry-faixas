@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CONTACT_LINK } from "@/lib/constants";
 import HeroVideo from "@/components/HeroVideo";
 
@@ -7,16 +6,16 @@ export default function Hero() {
     <section className="hero" id="inicio">
       <div className="hero__content">
         <p className="eyebrow">
-          <span>01</span> Impressão, instalação e acabamento
+          <span>Desde 1993</span> Comunicação visual em São Paulo
         </p>
 
         <h1>
-          Sua marca não passa <em>despercebida.</em>
+          Seu negócio chama atenção <em>antes mesmo de você falar.</em>
         </h1>
 
         <p className="hero__lead">
-          Faixas, fachadas, adesivos, placas e letreiros produzidos por quem
-          entende de impacto visual há mais de três décadas.
+          Faixas, fachadas, adesivos, placas e letreiros feitos sob medida,
+          com produção própria e atendimento direto pelo WhatsApp.
         </p>
 
         <div className="hero__actions">
@@ -26,45 +25,44 @@ export default function Hero() {
             target="_blank"
             rel="noreferrer"
           >
-            Começar um projeto <span aria-hidden="true">↗</span>
+            Pedir orçamento no WhatsApp <span aria-hidden="true">↗</span>
           </a>
           <a className="text-link" href="#portfolio">
-            Ver projetos <span aria-hidden="true">↓</span>
+            Ver trabalhos reais <span aria-hidden="true">↓</span>
           </a>
         </div>
 
-        <div className="hero__proof" aria-label="Destaques da Adry Faixas">
+        <div className="hero__proof" aria-label="Diferenciais da Adry Faixas">
           <div>
             <strong>30+</strong>
-            <span>anos no ramo</span>
+            <span>anos de experiência</span>
+          </div>
+          <div>
+            <strong>Sob medida</strong>
+            <span>produção sob medida</span>
           </div>
           <div>
             <strong>SP</strong>
-            <span>atendimento local</span>
-          </div>
-          <div>
-            <strong>5</strong>
-            <span>soluções principais</span>
+            <span>atendimento próximo</span>
           </div>
         </div>
       </div>
 
-      <div className="hero__visual" aria-label="Trabalho produzido pela Adry Faixas">
+      <div className="hero__visual" aria-label="Bastidores reais do trabalho da Adry Faixas">
         <div className="hero__image-main">
           <HeroVideo />
         </div>
 
-        <div className="hero__image-secondary">
-          <Image
-            src="/images/fachada-odontologia.jpg"
-            alt="Fachada de clínica odontológica produzida pela Adry Faixas"
-            fill
-            priority
-            sizes="(max-width: 900px) 42vw, 18vw"
-          />
+        <div className="hero__video-meta">
+          <span>Bastidores reais</span>
+          <span>Do arquivo à instalação</span>
         </div>
 
-        <span className="hero__caption">Bastidores reais • Adry Faixas</span>
+        <div className="hero__video-steps" aria-label="Etapas exibidas no vídeo">
+          <span><b>01</b> Impressão</span>
+          <span><b>02</b> Produção</span>
+          <span><b>03</b> Instalação</span>
+        </div>
       </div>
     </section>
   );

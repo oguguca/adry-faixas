@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Archivo_Black, Geist } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const archivoBlack = Archivo_Black({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +28,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Adry Faixas | Comunicação Visual",
-    description: "Sua marca não passa despercebida.",
+    description: "Sua marca precisa ser vista.",
     type: "website",
     locale: "pt_BR",
     url: "/",
@@ -32,14 +38,14 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Adry Faixas — Sua marca não passa despercebida.",
+        alt: "Adry Faixas — Sua marca precisa ser vista.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Adry Faixas | Comunicação Visual",
-    description: "Sua marca não passa despercebida.",
+    description: "Sua marca precisa ser vista.",
     images: ["/og.png"],
   },
 };
@@ -48,7 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${archivoBlack.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

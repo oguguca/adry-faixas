@@ -8,20 +8,14 @@ const NAV_LINKS = [
   { label: "Serviços", href: "#servicos" },
   { label: "Projetos", href: "#portfolio" },
   { label: "A Adry", href: "#sobre" },
+  { label: "Contato", href: "#contato" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <>
-      <div className="announcement">
-        <span>Comunicação visual em São Paulo</span>
-        <span className="announcement__dot" aria-hidden="true" />
-        <span>Mais de 30 anos de experiência</span>
-      </div>
-
-      <header className="site-header">
+    <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Adry Faixas — início">
           <Image
             src="/images/logo-adry.jpg"
@@ -31,6 +25,10 @@ export default function Header() {
             priority
           />
         </a>
+
+        <p className="header-note">
+          <span aria-hidden="true" /> Produção sob medida em São Paulo
+        </p>
 
         <nav className="desktop-nav" aria-label="Navegação principal">
           {NAV_LINKS.map((link) => (
@@ -78,11 +76,10 @@ export default function Header() {
               rel="noreferrer"
               onClick={() => setMenuOpen(false)}
             >
-              Pedir orçamento <span aria-hidden="true">↗</span>
+              Orçamento no WhatsApp <span aria-hidden="true">↗</span>
             </a>
           </nav>
         )}
-      </header>
-    </>
+    </header>
   );
 }
