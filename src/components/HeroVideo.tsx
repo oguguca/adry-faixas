@@ -57,7 +57,7 @@ export default function HeroVideo() {
         onCanPlay={() => void playVideo()}
         onPlaying={() => setPlayBlocked(false)}
       >
-        <source src="/videos/adry-bastidores.mp4" type="video/mp4" />
+        <source src="/videos/adry-bastidores-v2.mp4" type="video/mp4" />
       </video>
 
       {playBlocked && (

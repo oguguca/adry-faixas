@@ -47,40 +47,40 @@ const SERVICES = [
 
 const PROJECTS = [
   {
-    src: "/images/fachada-odontologia-hq.webp",
-    alt: "Fachada verde de clínica odontológica com adesivação de vitrine",
-    category: "Fachada + adesivo",
-    title: "MAB Odontologia",
+    src: "/images/projeto-envelopamento-caminhao.webp",
+    alt: "Caminhão de distribuição envelopado com comunicação visual azul",
+    category: "Envelopamento de frota",
+    title: "Marca que viaja pela cidade",
   },
   {
-    src: "/images/banner-churrasco-hq.webp",
-    alt: "Banner amarelo e vinho com cardápio de churrasco",
-    category: "Banner promocional",
-    title: "Oferta que se lê de longe",
+    src: "/images/projeto-food-truck-dog-luiz.webp",
+    alt: "Food truck Dog do Luiz com envelopamento vermelho e amarelo",
+    category: "Comunicação sobre veículo",
+    title: "Dog do Luiz",
   },
   {
-    src: "/images/adesivo-freezer-hq.webp",
-    alt: "Freezer adesivado em preto com ilustrações de cortes de carne",
-    category: "Adesivação",
-    title: "Palácio Casa de Carnes",
+    src: "/images/projeto-vitrine-pao-na-lenha.webp",
+    alt: "Vitrine da Padaria Pão na Lenha adesivada com produtos e ofertas",
+    category: "Adesivação de vitrine",
+    title: "Padaria Pão na Lenha",
   },
   {
-    src: "/images/fachada-mega-beef-hq.webp",
+    src: "/images/projeto-totem-grid.webp",
+    alt: "Totem de preços de combustível com acabamento branco e verde",
+    category: "Totem comercial",
+    title: "Preço claro, leitura rápida",
+  },
+  {
+    src: "/images/projeto-fachada-mega-beef.webp",
     alt: "Fachada de açougue com painéis e faixas promocionais coloridas",
     category: "Fachada completa",
     title: "Casa de Carnes Mega Beef",
   },
   {
-    src: "/images/adesivo-escola-hq.webp",
-    alt: "Parede escolar adesivada com palavras coloridas",
-    category: "Adesivo de parede",
-    title: "Ambientação escolar",
-  },
-  {
-    src: "/images/placa-mecanica-hq.webp",
-    alt: "Placa externa preta e laranja para oficina mecânica",
-    category: "Placa externa",
-    title: "Oficina Redenção",
+    src: "/images/projeto-adesivo-freezer-palacio.webp",
+    alt: "Freezer adesivado em preto com ilustrações de cortes de carne",
+    category: "Adesivação de equipamento",
+    title: "Palácio Casa de Carnes",
   },
 ];
 
