@@ -40,6 +40,7 @@ export default function Header() {
 
         <a
           className="button button--dark header-cta"
+          data-magnet
           href={CONTACT_LINK}
           target="_blank"
           rel="noreferrer"

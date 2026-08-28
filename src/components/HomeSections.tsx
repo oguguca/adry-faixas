@@ -47,40 +47,52 @@ const SERVICES = [
 
 const PROJECTS = [
   {
-    src: "/images/fachada-odontologia-hq.webp",
-    alt: "Fachada verde de clínica odontológica com adesivação de vitrine",
-    category: "Fachada + adesivo",
-    title: "MAB Odontologia",
+    src: "/images/projeto-envelopamento-caminhao.webp",
+    alt: "Caminhão de distribuição envelopado com comunicação visual azul",
+    category: "Envelopamento de frota",
+    title: "Marca que viaja pela cidade",
   },
   {
-    src: "/images/banner-churrasco-hq.webp",
-    alt: "Banner amarelo e vinho com cardápio de churrasco",
-    category: "Banner promocional",
-    title: "Oferta que se lê de longe",
+    src: "/images/projeto-food-truck-dog-luiz.webp",
+    alt: "Food truck Dog do Luiz com envelopamento vermelho e amarelo",
+    category: "Comunicação sobre veículo",
+    title: "Dog do Luiz",
   },
   {
-    src: "/images/adesivo-freezer-hq.webp",
-    alt: "Freezer adesivado em preto com ilustrações de cortes de carne",
-    category: "Adesivação",
-    title: "Palácio Casa de Carnes",
+    src: "/images/projeto-vitrine-pao-na-lenha.webp",
+    alt: "Vitrine da Padaria Pão na Lenha adesivada com produtos e ofertas",
+    category: "Adesivação de vitrine",
+    title: "Padaria Pão na Lenha",
   },
   {
-    src: "/images/fachada-mega-beef-hq.webp",
+    src: "/images/projeto-fachada-brindes-boni.webp",
+    alt: "Fachada da Brindes do Boni com painel preto e detalhes em amarelo e vermelho",
+    category: "Fachada comercial",
+    title: "Brindes do Boni",
+  },
+  {
+    src: "/images/projeto-adesivacao-qualita.webp",
+    alt: "Veículo branco da Qualitá com aplicação de identidade visual nas portas",
+    category: "Adesivação de veículo",
+    title: "Qualitá",
+  },
+  {
+    src: "/images/projeto-totem-grid.webp",
+    alt: "Totem de preços de combustível com acabamento branco e verde",
+    category: "Totem comercial",
+    title: "Preço claro, leitura rápida",
+  },
+  {
+    src: "/images/projeto-fachada-mega-beef.webp",
     alt: "Fachada de açougue com painéis e faixas promocionais coloridas",
     category: "Fachada completa",
     title: "Casa de Carnes Mega Beef",
   },
   {
-    src: "/images/adesivo-escola-hq.webp",
-    alt: "Parede escolar adesivada com palavras coloridas",
-    category: "Adesivo de parede",
-    title: "Ambientação escolar",
-  },
-  {
-    src: "/images/placa-mecanica-hq.webp",
-    alt: "Placa externa preta e laranja para oficina mecânica",
-    category: "Placa externa",
-    title: "Oficina Redenção",
+    src: "/images/projeto-adesivo-freezer-palacio.webp",
+    alt: "Freezer adesivado em preto com ilustrações de cortes de carne",
+    category: "Adesivação de equipamento",
+    title: "Palácio Casa de Carnes",
   },
 ];
 
@@ -143,6 +155,7 @@ export default function HomeSections() {
           {SERVICES.map((service, index) => (
             <article
               className="service-row"
+              data-spotlight
               data-reveal="up"
               key={service.number}
               style={{ "--reveal-delay": `${index * 55}ms` } as CSSProperties}
@@ -159,13 +172,50 @@ export default function HomeSections() {
         </div>
       </section>
 
-      <section className="quote-bridge">
-        <div className="quote-bridge__content section-shell" data-reveal="up">
-          <p>Já sabe o que precisa?</p>
-          <h2>Envie uma foto e as medidas. A gente ajuda a fechar o formato certo.</h2>
-          <a className="button button--orange" href={CONTACT_LINK} target="_blank" rel="noreferrer">
-            Conversar no WhatsApp <span aria-hidden="true">↗</span>
-          </a>
+      <section className="workshop-story" id="bastidores" aria-labelledby="workshop-story-title">
+        <div className="workshop-story__content section-shell">
+          <div className="workshop-story__heading" data-reveal="up">
+            <p className="section-kicker"><span>Feito aqui</span> Bastidores da produção</p>
+            <h2 id="workshop-story-title">Produção própria.<br /><em>Olho no acabamento.</em></h2>
+          </div>
+
+          <div className="workshop-story__intro" data-reveal="up">
+            <p>
+              Antes de ganhar a rua, cada peça passa pelas mãos da equipe — do
+              material à conferência final.
+            </p>
+            <a href="#sobre">Conheça a Adry <span aria-hidden="true">↓</span></a>
+          </div>
+
+          <div className="workshop-story__gallery">
+            <figure className="workshop-shot workshop-shot--wide" data-reveal="left">
+              <Image
+                src="/images/bastidor-veiculo-producao.webp"
+                alt="Veículo da Qualitá sendo preparado dentro da oficina da Adry"
+                fill
+                sizes="(max-width: 720px) 100vw, 42vw"
+              />
+              <figcaption><span>01</span> Preparação</figcaption>
+            </figure>
+            <figure className="workshop-shot workshop-shot--raised" data-reveal="up">
+              <Image
+                src="/images/bastidor-totem-grid.webp"
+                alt="Totem da Grid instalado e conferido no local"
+                fill
+                sizes="(max-width: 720px) 100vw, 28vw"
+              />
+              <figcaption><span>02</span> Instalação</figcaption>
+            </figure>
+            <figure className="workshop-shot" data-reveal="right">
+              <Image
+                src="/images/bastidor-adesivo-pao-na-lenha.webp"
+                alt="Detalhe da aplicação de adesivos na Padaria Pão na Lenha"
+                fill
+                sizes="(max-width: 720px) 100vw, 30vw"
+              />
+              <figcaption><span>03</span> Acabamento</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -187,25 +237,83 @@ export default function HomeSections() {
           {PROJECTS.map((project, index) => (
             <article
               className="project-card"
+              data-halftone={index === 0 || index === 4 ? "true" : undefined}
               data-reveal="up"
               key={project.src}
-              style={{ "--reveal-delay": `${(index % 3) * 80}ms` } as CSSProperties}
+              style={{ "--reveal-delay": `${(index % 4) * 70}ms` } as CSSProperties}
             >
               <div className="project-card__image">
                 <Image
                   src={project.src}
                   alt={project.alt}
                   fill
-                  sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                  sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
                 />
               </div>
-              <span className="project-card__index">0{index + 1}</span>
+              <span className="project-card__index">{String(index + 1).padStart(2, "0")}</span>
               <div className="project-card__caption">
                 <span>{project.category}</span>
                 <h3>{project.title}</h3>
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="case-study" id="liberdade" aria-labelledby="liberdade-title">
+        <div className="case-study__content section-shell">
+          <div className="case-study__heading" data-reveal="up">
+            <p className="section-kicker"><span>Projeto especial</span> Liberdade • São Paulo</p>
+            <h2 id="liberdade-title">
+              Nosso trabalho mais desafiador.<br />
+              <em>Feito para a Liberdade.</em>
+            </h2>
+          </div>
+
+          <div className="case-study__intro" data-reveal="up">
+            <p>
+              Uma aplicação de grande formato sobre superfície metálica
+              ondulada, montada em altura e por etapas para manter a ilustração
+              contínua em toda a extensão.
+            </p>
+            <div className="case-study__facts" aria-label="Desafios do projeto">
+              <span>Aplicação em altura</span>
+              <span>Superfície ondulada</span>
+              <span>Grande formato</span>
+            </div>
+          </div>
+
+          <div className="case-study__gallery">
+            <figure className="case-study__image case-study__image--main" data-reveal="left">
+              <Image
+                src="/images/projeto-liberdade-final-dia.webp"
+                alt="Mural de grande formato instalado na Liberdade em São Paulo"
+                fill
+                sizes="(max-width: 920px) 100vw, 58vw"
+              />
+              <figcaption><span>01</span> Resultado completo</figcaption>
+            </figure>
+
+            <figure className="case-study__image case-study__image--process" data-reveal="up">
+              <Image
+                src="/images/projeto-liberdade-instalacao.webp"
+                alt="Profissional instalando o mural em altura sobre a superfície ondulada"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 920px) 42vw, 18vw"
+              />
+              <figcaption><span>02</span> Execução em altura</figcaption>
+            </figure>
+
+            <figure className="case-study__image case-study__image--night" data-reveal="right">
+              <Image
+                src="/images/projeto-liberdade-final-noite.webp"
+                alt="Detalhes do mural da Liberdade fotografados durante a noite"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 920px) 58vw, 24vw"
+              />
+              <figcaption><span>03</span> Detalhes preservados</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -273,7 +381,7 @@ export default function HomeSections() {
         <div className="contact__content section-shell">
           <div data-reveal="up">
             <p className="section-kicker"><span>06</span> Vamos começar?</p>
-            <h2>Mande uma foto do espaço. A conversa começa por aí.</h2>
+            <h2>Sua marca merece ocupar mais espaço.</h2>
           </div>
           <div
             className="contact__aside"
@@ -281,11 +389,12 @@ export default function HomeSections() {
             style={{ "--reveal-delay": "90ms" } as CSSProperties}
           >
             <p>
-              Conte o que precisa, envie as medidas aproximadas e fale direto
-              com a Adry. Sem formulário longo e sem enrolação.
+              Conte onde sua marca precisa aparecer. A equipe orienta formato,
+              material e acabamento — com resposta direta pelo WhatsApp.
             </p>
+            <span className="contact__note">Orçamento direto. Sem formulário longo.</span>
             <div className="contact__actions">
-              <a className="button button--dark" href={CONTACT_LINK} target="_blank" rel="noreferrer">
+              <a className="button button--orange" data-magnet href={CONTACT_LINK} target="_blank" rel="noreferrer">
                 Pedir orçamento <span aria-hidden="true">↗</span>
               </a>
               <a className="contact__email" href={EMAIL_LINK}>{EMAIL} <span aria-hidden="true">↗</span></a>
@@ -307,7 +416,7 @@ export default function HomeSections() {
         <p className="footer__copyright">© 2026 Adry Faixas — Comunicação Visual</p>
       </footer>
 
-      <a className="floating-contact" href={CONTACT_LINK} target="_blank" rel="noreferrer" aria-label="Pedir orçamento pelo WhatsApp">
+      <a className="floating-contact" data-magnet href={CONTACT_LINK} target="_blank" rel="noreferrer" aria-label="Pedir orçamento pelo WhatsApp">
         <span>Orçamento</span>
         <strong aria-hidden="true">↗</strong>
       </a>
