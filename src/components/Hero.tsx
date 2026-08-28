@@ -23,6 +23,7 @@ export default function Hero() {
         <div className="hero__actions">
           <a
             className="button button--orange"
+            data-magnet
             href={CONTACT_LINK}
             target="_blank"
             rel="noreferrer"
@@ -34,19 +35,12 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="hero__proof" aria-label="Diferenciais da Adry Faixas">
-          <div>
-            <strong>30+</strong>
-            <span>anos de experiência</span>
-          </div>
-          <div>
-            <strong>Produção própria</strong>
-            <span>do arquivo ao acabamento</span>
-          </div>
-          <div>
-            <strong>São Paulo</strong>
-            <span>atendimento direto e próximo</span>
-          </div>
+        <div className="hero__signature" aria-label="Mais de 30 anos de experiência">
+          <strong data-count-up="30" data-count-suffix="+">30+</strong>
+          <p>
+            anos fazendo marcas aparecerem, com produção própria e atendimento
+            direto em São Paulo.
+          </p>
         </div>
       </div>
 
@@ -60,11 +54,9 @@ export default function Hero() {
           <span>Do arquivo ao resultado</span>
         </div>
 
-        <div className="hero__video-steps" aria-label="Etapas exibidas no vídeo">
-          <span><b>01</b> Impressão</span>
-          <span><b>02</b> Produção</span>
-          <span><b>03</b> Instalação</span>
-          <span><b>04</b> Resultado</span>
+        <div className="hero__video-caption">
+          <span>Produção própria</span>
+          <strong>Da tela para a rua.</strong>
         </div>
       </div>
     </section>

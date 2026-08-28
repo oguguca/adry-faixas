@@ -13,9 +13,18 @@ export default function ScrollEffects() {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const cleanupInteractions: Array<() => void> = [];
+
+    const countElements = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-count-up]"),
+    );
 
     if (reduceMotion) {
       revealElements.forEach((element) => element.classList.add("is-visible"));
+      countElements.forEach((element) => {
+        const target = Number(element.dataset.countUp ?? 0);
+        element.textContent = `${target}${element.dataset.countSuffix ?? ""}`;
+      });
       return;
     }
 
@@ -34,6 +43,94 @@ export default function ScrollEffects() {
     );
 
     revealElements.forEach((element) => observer.observe(element));
+
+    const countObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const element = entry.target as HTMLElement;
+          const target = Number(element.dataset.countUp ?? 0);
+          const suffix = element.dataset.countSuffix ?? "";
+          const duration = 1050;
+          const startedAt = performance.now();
+
+          const drawCount = (now: number) => {
+            const progress = Math.min(1, (now - startedAt) / duration);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            element.textContent = `${Math.round(target * eased)}${suffix}`;
+
+            if (progress < 1) window.requestAnimationFrame(drawCount);
+          };
+
+          element.textContent = `0${suffix}`;
+          window.requestAnimationFrame(drawCount);
+          countObserver.unobserve(element);
+        });
+      },
+      { threshold: 0.65 },
+    );
+
+    countElements.forEach((element) => countObserver.observe(element));
+
+    const precisePointer = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+
+    if (precisePointer) {
+      const pointerEffects = Array.from(
+        document.querySelectorAll<HTMLElement>(
+          "[data-spotlight], [data-halftone]",
+        ),
+      );
+
+      pointerEffects.forEach((element) => {
+        const updatePointer = (event: PointerEvent) => {
+          const rect = element.getBoundingClientRect();
+          element.style.setProperty("--effect-x", `${event.clientX - rect.left}px`);
+          element.style.setProperty("--effect-y", `${event.clientY - rect.top}px`);
+          element.classList.add("is-pointer-active");
+        };
+        const resetPointer = () => element.classList.remove("is-pointer-active");
+
+        element.addEventListener("pointermove", updatePointer);
+        element.addEventListener("pointerleave", resetPointer);
+        cleanupInteractions.push(() => {
+          element.removeEventListener("pointermove", updatePointer);
+          element.removeEventListener("pointerleave", resetPointer);
+        });
+      });
+
+      const magnetElements = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-magnet]"),
+      );
+
+      magnetElements.forEach((element) => {
+        const updateMagnet = (event: PointerEvent) => {
+          const rect = element.getBoundingClientRect();
+          const offsetX = event.clientX - (rect.left + rect.width / 2);
+          const offsetY = event.clientY - (rect.top + rect.height / 2);
+          const pullX = Math.max(-9, Math.min(9, offsetX * 0.14));
+          const pullY = Math.max(-7, Math.min(7, offsetY * 0.14));
+
+          element.style.setProperty("--magnet-x", `${pullX}px`);
+          element.style.setProperty("--magnet-y", `${pullY}px`);
+          element.classList.add("is-magnet-active");
+        };
+        const resetMagnet = () => {
+          element.style.setProperty("--magnet-x", "0px");
+          element.style.setProperty("--magnet-y", "0px");
+          element.classList.remove("is-magnet-active");
+        };
+
+        element.addEventListener("pointermove", updateMagnet);
+        element.addEventListener("pointerleave", resetMagnet);
+        cleanupInteractions.push(() => {
+          element.removeEventListener("pointermove", updateMagnet);
+          element.removeEventListener("pointerleave", resetMagnet);
+        });
+      });
+    }
 
     let frame = 0;
     const updateProgress = () => {
@@ -57,6 +154,8 @@ export default function ScrollEffects() {
 
     return () => {
       observer.disconnect();
+      countObserver.disconnect();
+      cleanupInteractions.forEach((cleanup) => cleanup());
       root.classList.remove("motion-ready");
       if (frame) window.cancelAnimationFrame(frame);
       window.removeEventListener("scroll", requestProgressUpdate);
