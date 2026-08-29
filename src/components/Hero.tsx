@@ -6,18 +6,20 @@ export default function Hero() {
     <section className="hero" id="inicio">
       <div className="hero__content">
         <p className="eyebrow">
-          <span>Desde 1993</span> Comunicação visual em São Paulo
+          <span>Desde 1993</span>
+          Comunicação visual em São Paulo
         </p>
 
         <h1>
-          <span>Seu negócio</span>
-          <span>chama atenção</span>
-          <em>antes de você falar.</em>
+          <span>Comunicação visual</span>
+          <span>para quem precisa</span>
+          <em>ser visto.</em>
         </h1>
 
         <p className="hero__lead">
-          Faixas, fachadas, adesivos, placas e letreiros sob medida — com
-          produção própria e mais de 30 anos de experiência.
+          Fachadas, faixas, adesivos, placas e letreiros feitos sob medida para
+          transformar seu ponto, veículo ou espaço em comunicação que chama
+          atenção.
         </p>
 
         <div className="hero__actions">
@@ -30,33 +32,43 @@ export default function Hero() {
           >
             Pedir orçamento no WhatsApp <span aria-hidden="true">↗</span>
           </a>
+
           <a className="text-link" href="#portfolio">
-            Ver trabalhos reais <span aria-hidden="true">↓</span>
+            Ver trabalhos realizados <span aria-hidden="true">↓</span>
           </a>
         </div>
 
-        <div className="hero__signature" aria-label="Mais de 30 anos de experiência">
-          <strong data-count-up="30" data-count-suffix="+">30+</strong>
+        <div
+          className="hero__signature"
+          aria-label="Mais de 30 anos de experiência"
+        >
+          <strong data-count-up="30" data-count-suffix="+">
+            30+
+          </strong>
+
           <p>
-            anos fazendo marcas aparecerem, com produção própria e atendimento
-            direto em São Paulo.
+            anos de experiência, produção própria e atendimento direto para
+            tirar sua ideia do papel e colocar sua marca na rua.
           </p>
         </div>
       </div>
 
-      <div className="hero__visual" aria-label="Bastidores reais do trabalho da Adry Faixas">
+      <div
+        className="hero__visual"
+        aria-label="Bastidores reais do trabalho da Adry Faixas"
+      >
         <div className="hero__image-main">
           <HeroVideo />
         </div>
 
         <div className="hero__video-meta">
-          <span>Bastidores reais</span>
-          <span>Do arquivo ao resultado</span>
+          <span>Produção real</span>
+          <span>Fachadas • Adesivos • Faixas • Letreiros</span>
         </div>
 
         <div className="hero__video-caption">
-          <span>Produção própria</span>
-          <strong>Da tela para a rua.</strong>
+          <span>Da ideia à instalação</span>
+          <strong>Sua marca pronta para aparecer.</strong>
         </div>
       </div>
     </section>

@@ -8,6 +8,7 @@ export default function Home() {
     <>
       <ScrollEffects />
       <Header />
+
       <main>
         <Hero />
         <HomeSections />
