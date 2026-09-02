@@ -533,33 +533,56 @@ export default function HomeSections() {
             <em>seu orçamento.</em>
           </h2>
 
-          <p>
-            Algumas respostas rápidas para você saber o que mandar e como o
-            atendimento funciona.
-          </p>
+          <p>As dúvidas mais comuns antes de começar um projeto com a Adry.</p>
+
+          <div className="faq__heading-note" aria-hidden="true">
+            <span>Resposta rápida</span>
+            <span>Atendimento direto</span>
+          </div>
         </div>
 
-        <div className="faq__list">
-          {FAQS.map((item, index) => (
-            <details
-              className="faq-item"
-              data-reveal="up"
-              key={item.question}
-              style={
-                {
-                  "--reveal-delay": `${index * 45}ms`,
-                } as CSSProperties
-              }
-            >
-              <summary>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{item.question}</strong>
-                <i aria-hidden="true">+</i>
-              </summary>
+        <div className="faq__content">
+          <div className="faq__list">
+            {FAQS.map((item, index) => (
+              <details
+  className="faq-item"
+  name="faq-adry"
+  data-reveal="up"
+  key={item.question}
+  style={
+    {
+      "--reveal-delay": `${index * 45}ms`,
+    } as CSSProperties
+  }
+>
+                <summary>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{item.question}</strong>
+                  <i aria-hidden="true">+</i>
+                </summary>
 
-              <p>{item.answer}</p>
-            </details>
-          ))}
+                <div className="faq-item__answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="faq__cta" data-reveal="up">
+            <div>
+              <span>Ainda ficou com alguma dúvida?</span>
+              <strong>Fale direto com a equipe.</strong>
+            </div>
+
+            <a
+              className="faq__cta-link"
+              href={CONTACT_LINK}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Tirar uma dúvida <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
