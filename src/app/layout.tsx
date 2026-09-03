@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Geist } from "next/font/google";
 import "./globals.css";
+import "./redesign.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Adry Faixas | Comunicação Visual",
-    description: "Sua marca precisa ser vista.",
+    description: "Sua marca, do arquivo para a rua.",
     type: "website",
     locale: "pt_BR",
     url: "/",
@@ -38,14 +39,14 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Adry Faixas — Sua marca precisa ser vista.",
+        alt: "Adry Faixas — Comunicação Visual em São Paulo.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Adry Faixas | Comunicação Visual",
-    description: "Sua marca precisa ser vista.",
+    description: "Sua marca, do arquivo para a rua.",
     images: ["/og.png"],
   },
 };
