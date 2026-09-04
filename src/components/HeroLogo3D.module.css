@@ -1,16 +1,10 @@
 .hero {
   position: relative;
   display: grid;
-  min-height: clamp(640px, calc(100svh - 82px), 880px);
+  min-height: clamp(650px, calc(100svh - 82px), 900px);
   place-items: center;
   overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 50% 48%,
-      rgba(255, 91, 20, 0.035),
-      transparent 34%
-    ),
-    #ffffff;
+  background: #ffffff;
   color: #171612;
 }
 
@@ -18,12 +12,10 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(
-      to bottom,
-      rgba(23, 22, 18, 0.025),
-      transparent 22%,
-      transparent 78%,
-      rgba(23, 22, 18, 0.025)
+    radial-gradient(
+      circle at 50% 43%,
+      rgba(255, 91, 20, 0.035),
+      transparent 30%
     );
   content: "";
   pointer-events: none;
@@ -33,127 +25,150 @@
   position: relative;
   z-index: 1;
   display: grid;
-  width: min(100% - 40px, 1080px);
+  width: min(100% - 40px, 1100px);
   justify-items: center;
-  gap: clamp(34px, 5vh, 54px);
-  padding: clamp(74px, 10vh, 112px) 0 clamp(68px, 9vh, 96px);
+  gap: clamp(34px, 5vh, 52px);
+  padding: clamp(72px, 9vh, 104px) 0 clamp(66px, 8vh, 90px);
   text-align: center;
 }
 
 .logoStage {
   --rotate-x: 0deg;
   --rotate-y: 0deg;
+  --shadow-x: 0px;
+  --shadow-y: 14px;
   --pointer-x: 50%;
   --pointer-y: 50%;
 
   position: relative;
   display: grid;
-  width: min(82vw, 760px);
+  width: min(80vw, 760px);
   place-items: center;
-  perspective: 1100px;
+  perspective: 900px;
+  perspective-origin: 50% 50%;
   isolation: isolate;
-  cursor: default;
 }
 
-.logoStage::before {
-  position: absolute;
-  z-index: -2;
-  top: 52%;
-  left: 50%;
-  width: 74%;
-  height: 54%;
-  border-radius: 50%;
-  background: rgba(23, 22, 18, 0.08);
-  content: "";
-  filter: blur(42px);
-  opacity: 0.5;
-  transform: translate(-50%, -50%) scale(0.88);
-  transition:
-    opacity 320ms ease,
-    transform 460ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.logoStage::after {
-  position: absolute;
-  z-index: -1;
-  inset: -22% -10%;
-  background:
-    radial-gradient(
-      circle at var(--pointer-x) var(--pointer-y),
-      rgba(255, 91, 20, 0.11),
-      transparent 26%
-    );
-  content: "";
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 240ms ease;
-}
-
-.logoDepth {
+.scene {
   position: relative;
   width: 100%;
   transform:
     rotateX(var(--rotate-x))
-    rotateY(var(--rotate-y))
-    translateZ(0);
+    rotateY(var(--rotate-y));
   transform-style: preserve-3d;
   transition:
-    transform 120ms ease-out;
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
-.logo {
-  position: relative;
-  z-index: 3;
+.isActive .scene {
+  transition: transform 80ms linear;
+}
+
+.logoFront,
+.depthLayer img {
   display: block;
   width: 100%;
   height: auto;
-  filter:
-    drop-shadow(0 10px 12px rgba(23, 22, 18, 0.10))
-    drop-shadow(0 2px 3px rgba(23, 22, 18, 0.08));
-  transform: translateZ(46px);
-  transition:
-    filter 300ms ease,
-    transform 300ms ease;
   user-select: none;
-}
-
-.logoShadow {
-  position: absolute;
-  z-index: 0;
-  top: 58%;
-  right: 10%;
-  left: 10%;
-  height: 24%;
-  border-radius: 50%;
-  background: rgba(23, 22, 18, 0.18);
-  filter: blur(30px);
-  opacity: 0.34;
-  transform: translateZ(-34px) translateY(24px) scaleX(0.92);
   pointer-events: none;
 }
 
-.logoSheen {
+.logoFront {
+  position: relative;
+  z-index: 10;
+  transform: translateZ(52px);
+  filter:
+    drop-shadow(0 8px 12px rgba(23, 22, 18, 0.09))
+    drop-shadow(0 2px 3px rgba(23, 22, 18, 0.08));
+  transition:
+    transform 300ms ease,
+    filter 300ms ease;
+}
+
+.isActive .logoFront {
+  transform: translateZ(66px) scale(1.008);
+  filter:
+    drop-shadow(0 14px 18px rgba(23, 22, 18, 0.12))
+    drop-shadow(0 4px 6px rgba(23, 22, 18, 0.08));
+}
+
+.depthLayer {
   position: absolute;
-  z-index: 4;
-  inset: 7% 3%;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.depthLayer img {
+  filter: brightness(0.20) saturate(0.6);
+}
+
+.depthLayer1 {
+  opacity: 0.18;
+  transform: translate3d(3px, 4px, 34px);
+}
+
+.depthLayer2 {
+  opacity: 0.12;
+  transform: translate3d(6px, 7px, 17px);
+}
+
+.depthLayer3 {
+  opacity: 0.07;
+  transform: translate3d(9px, 10px, 0);
+}
+
+.floorShadow {
+  position: absolute;
+  z-index: -1;
+  top: 58%;
+  right: 12%;
+  left: 12%;
+  height: 24%;
+  border-radius: 50%;
+  background: rgba(23, 22, 18, 0.18);
+  filter: blur(28px);
+  opacity: 0.22;
+  transform:
+    translate3d(var(--shadow-x), var(--shadow-y), -50px)
+    scaleX(0.88);
+  transition:
+    opacity 260ms ease,
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.isActive .floorShadow {
+  opacity: 0.36;
+  transition: transform 80ms linear;
+}
+
+.glare {
+  position: absolute;
+  z-index: 20;
+  inset: 7% 4%;
   background:
     radial-gradient(
       circle at var(--pointer-x) var(--pointer-y),
-      rgba(255, 255, 255, 0.54),
-      transparent 18%
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.12) 14%,
+      transparent 29%
     );
   mix-blend-mode: soft-light;
   opacity: 0;
   pointer-events: none;
-  transform: translateZ(58px);
-  transition: opacity 240ms ease;
+  transform: translateZ(78px);
+  transition: opacity 220ms ease;
+}
+
+.isActive .glare {
+  opacity: 0.55;
 }
 
 .copy {
   display: grid;
   justify-items: center;
-  gap: 14px;
+  gap: 13px;
   max-width: 760px;
 }
 
@@ -161,7 +176,7 @@
   margin: 0;
   color: #171612;
   font-family: var(--font-geist-sans), Arial, sans-serif;
-  font-size: clamp(27px, 3vw, 44px);
+  font-size: clamp(28px, 3vw, 44px);
   font-weight: 580;
   letter-spacing: -0.04em;
   line-height: 1.08;
@@ -174,34 +189,12 @@
 }
 
 .copy p {
-  max-width: 680px;
+  max-width: 670px;
   margin: 0;
-  color: rgba(23, 22, 18, 0.57);
+  color: rgba(23, 22, 18, 0.56);
   font-size: clamp(14px, 1.2vw, 17px);
   line-height: 1.6;
   text-wrap: balance;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .logoStage:hover::before {
-    opacity: 0.68;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .logoStage:hover::after {
-    opacity: 1;
-  }
-
-  .logoStage:hover .logo {
-    filter:
-      drop-shadow(0 22px 24px rgba(23, 22, 18, 0.13))
-      drop-shadow(0 4px 6px rgba(23, 22, 18, 0.08));
-    transform: translateZ(58px) scale(1.012);
-  }
-
-  .logoStage:hover .logoSheen {
-    opacity: 0.62;
-  }
 }
 
 @media (max-width: 700px) {
@@ -211,36 +204,42 @@
 
   .heroInner {
     width: min(100% - 32px, 600px);
-    gap: 34px;
-    padding: 62px 0 54px;
+    gap: 32px;
+    padding: 58px 0 50px;
   }
 
   .logoStage {
-    width: min(88vw, 520px);
+    width: min(88vw, 540px);
+  }
+
+  .depthLayer,
+  .glare {
+    display: none;
+  }
+
+  .logoFront {
+    transform: none;
   }
 
   .copy h1 {
-    font-size: clamp(27px, 8.3vw, 38px);
+    font-size: clamp(27px, 8vw, 38px);
   }
 
   .copy p {
-    max-width: 520px;
     font-size: 14px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logoDepth,
-  .logo,
-  .logoStage::before,
-  .logoStage::after,
-  .logoSheen {
-    transition: none !important;
+  .scene,
+  .logoFront,
+  .floorShadow {
     transform: none !important;
+    transition: none !important;
   }
 
-  .logoStage::after,
-  .logoSheen {
-    display: none;
+  .depthLayer,
+  .glare {
+    display: none !important;
   }
 }

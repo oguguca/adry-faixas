@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroVideo from "@/components/HeroVideo";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import {
   CONTACT_LINK,
   EMAIL,
@@ -151,26 +152,54 @@ const FAQS = [
 export default function HomeSections() {
   return (
     <>
-      <aside className="proof-bar" aria-label="Diferenciais da Adry">
-        <div className="proof-bar__inner section-shell">
-          <p><strong>30+ anos</strong><span>de experiência</span></p>
-          <p><strong>Produção própria</strong><span>acompanhamento de perto</span></p>
-          <p><strong>Sob medida</strong><span>material para cada uso</span></p>
-          <p><strong>São Paulo</strong><span>atendimento direto</span></p>
-        </div>
-      </aside>
+      <section
+        className="services"
+        id="servicos"
+        aria-labelledby="services-title"
+      >
+        <ContainerScroll
+          titleComponent={
+            <header className="services-transition__intro">
+              <p className="section-label">Serviços</p>
 
-      <section className="services section-pad" id="servicos" aria-labelledby="services-title">
-        <div className="section-shell">
-          <header className="section-intro" data-reveal>
-            <p className="section-label">Serviços</p>
-            <h2 id="services-title">O que a Adry faz.</h2>
-            <p>
-              Você não precisa chegar sabendo o nome do material. Mostre o espaço,
-              explique o objetivo e a equipe ajuda a definir o caminho.
-            </p>
-          </header>
+              <h2 id="services-title">O que a Adry faz.</h2>
 
+              <p>
+                Você não precisa chegar sabendo o nome do material. Mostre o
+                espaço, explique o objetivo e a equipe ajuda a definir o caminho.
+              </p>
+            </header>
+          }
+        >
+          <div className="services-transition__panel">
+            <div className="services-transition__panel-head">
+              <strong>ADRY</strong>
+              <span>Comunicação visual · São Paulo</span>
+            </div>
+
+            <div className="services-transition__panel-main">
+              <p>Do pedido à rua.</p>
+
+              <div className="services-transition__index">
+                {SERVICES.map((service, index) => (
+                  <div key={service.title}>
+                    <span aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <strong>{service.title}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="services-transition__panel-foot">
+              <span>Produção própria</span>
+              <span>Desde 1993</span>
+            </div>
+          </div>
+        </ContainerScroll>
+
+        <div className="services__details section-shell">
           <div className="services-list">
             {SERVICES.map((service, index) => (
               <article className="service-row" key={service.title} data-reveal>
@@ -187,8 +216,17 @@ export default function HomeSections() {
           </div>
 
           <div className="section-action" data-reveal>
-            <p>Tem outro formato em mente? Mande uma referência e conte o que você precisa.</p>
-            <a className="button button--dark" href={CONTACT_LINK} target="_blank" rel="noreferrer">
+            <p>
+              Tem outro formato em mente? Mande uma referência e conte o que
+              você precisa.
+            </p>
+
+            <a
+              className="button button--dark"
+              href={CONTACT_LINK}
+              target="_blank"
+              rel="noreferrer"
+            >
               Conversar no WhatsApp
             </a>
           </div>
