@@ -7,9 +7,12 @@ export default function Home() {
   return (
     <>
       <ScrollEffects />
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
       <Header />
 
-      <main>
+      <main id="conteudo">
         <Hero />
         <HomeSections />
       </main>

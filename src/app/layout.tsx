@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Geist } from "next/font/google";
+import type { ReactNode } from "react";
+import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
-import "./redesign.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barlow = Barlow({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const archivoBlack = Archivo_Black({
+const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adry-faixas.guguxtaa.chatgpt.site"),
   title: "Adry Faixas | Comunicação Visual em São Paulo",
   description:
-    "Faixas, fachadas, placas, adesivos e letreiros em São Paulo. Mais de 30 anos transformando ideias em comunicação visual.",
+    "Faixas, fachadas, adesivos, placas e letreiros com produção própria em São Paulo desde 1993.",
   keywords: [
     "comunicação visual São Paulo",
     "faixas personalizadas",
@@ -28,8 +29,9 @@ export const metadata: Metadata = {
     "letreiros",
   ],
   openGraph: {
-    title: "Adry Faixas | Comunicação Visual",
-    description: "Sua marca, do arquivo para a rua.",
+    title: "Adry Faixas | Comunicação Visual em São Paulo",
+    description:
+      "Produção própria de faixas, fachadas, adesivos, placas e letreiros em São Paulo.",
     type: "website",
     locale: "pt_BR",
     url: "/",
@@ -39,25 +41,26 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Adry Faixas — Comunicação Visual em São Paulo.",
+        alt: "Adry Faixas — Comunicação Visual em São Paulo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adry Faixas | Comunicação Visual",
-    description: "Sua marca, do arquivo para a rua.",
+    title: "Adry Faixas | Comunicação Visual em São Paulo",
+    description: "Produção própria em São Paulo desde 1993.",
     images: ["/og.png"],
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${geistSans.variable} ${archivoBlack.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="pt-BR" className={`${barlow.variable} ${barlowCondensed.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

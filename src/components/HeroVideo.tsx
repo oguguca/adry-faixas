@@ -4,73 +4,69 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playBlocked, setPlayBlocked] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
-  const startPlayback = useCallback(() => {
+  const play = useCallback(async () => {
     const video = videoRef.current;
 
-    if (!video) return Promise.resolve();
+    if (!video) return;
 
-    video.muted = true;
-    video.defaultMuted = true;
-
-    return video.play();
+    try {
+      video.muted = true;
+      video.defaultMuted = true;
+      await video.play();
+      setPlaying(true);
+    } catch {
+      setPlaying(false);
+    }
   }, []);
 
-  const playVideo = useCallback(async () => {
-    try {
-      await startPlayback();
-      setPlayBlocked(false);
-    } catch {
-      setPlayBlocked(true);
-    }
-  }, [startPlayback]);
+  const pause = useCallback(() => {
+    videoRef.current?.pause();
+    setPlaying(false);
+  }, []);
 
   useEffect(() => {
-    void startPlayback().catch(() => setPlayBlocked(true));
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    const playbackCheck = window.setTimeout(() => {
-      if (videoRef.current?.paused) setPlayBlocked(true);
-    }, 1200);
-
-    const resumeWhenVisible = () => {
-      if (document.visibilityState === "visible") {
-        void startPlayback().catch(() => setPlayBlocked(true));
-      }
-    };
-
-    document.addEventListener("visibilitychange", resumeWhenVisible);
+    if (!reducedMotion) {
+      void play();
+    }
 
     return () => {
-      window.clearTimeout(playbackCheck);
-      document.removeEventListener("visibilitychange", resumeWhenVisible);
+      videoRef.current?.pause();
     };
-  }, [startPlayback]);
+  }, [play]);
 
   return (
-    <div className="hero__video-player">
+    <div className="workshop-media">
       <video
         ref={videoRef}
-        className="hero__video"
-        autoPlay
+        className="workshop-media__video"
         loop
         muted
         playsInline
         preload="auto"
         disablePictureInPicture
         poster="/images/hero-bastidores-poster-v3.webp"
-        aria-label="Bastidores da Adry: impressão, produção manual, instalação e trabalho finalizado"
-        onCanPlay={() => void playVideo()}
-        onPlaying={() => setPlayBlocked(false)}
+        aria-hidden="true"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
       >
         <source src="/videos/adry-bastidores-v3.mp4" type="video/mp4" />
       </video>
 
-      {playBlocked && (
-        <button className="hero__play-button" type="button" onClick={() => void playVideo()}>
-          <span aria-hidden="true">▶</span> Reproduzir bastidores
-        </button>
-      )}
+      <button
+        className={`workshop-media__control${playing ? " is-playing" : ""}`}
+        type="button"
+        aria-label={playing ? "Pausar vídeo dos bastidores" : "Reproduzir vídeo dos bastidores"}
+        aria-pressed={playing}
+        onClick={playing ? pause : () => void play()}
+      >
+        <span aria-hidden="true" />
+      </button>
     </div>
   );
 }

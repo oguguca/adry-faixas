@@ -1,57 +1,25 @@
-import { CONTACT_LINK } from "@/lib/constants";
-import HeroVideo from "@/components/HeroVideo";
+import HeroLogo3D from "@/components/HeroLogo3D";
+import styles from "./HeroLogo3D.module.css";
 
 export default function Hero() {
   return (
-    <section className="hero hero--editorial" id="inicio">
-      <div className="hero__content">
-        <p className="eyebrow">
-          <span>Desde 1993</span>
-          Comunicação visual em São Paulo
-        </p>
+    <section
+      className={styles.hero}
+      id="inicio"
+      aria-labelledby="hero-title"
+    >
+      <div className={styles.heroInner}>
+        <HeroLogo3D />
 
-        <h1>
-          <span>Sua marca,</span>
-          <span>do arquivo</span>
-          <em>para a rua.</em>
-        </h1>
+        <div className={styles.copy}>
+          <h1 id="hero-title">
+            Mais de <strong>30 anos</strong> de experiência em comunicação visual.
+          </h1>
 
-        <p className="hero__lead">
-          Faixas, fachadas, adesivos, placas e letreiros produzidos pela própria
-          equipe da Adry, em São Paulo.
-        </p>
-
-        <div className="hero__actions">
-          <a
-            className="hero__primary-cta"
-            href={CONTACT_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Pedir orçamento
-          </a>
-
-          <a className="text-link" href="#portfolio">
-            Ver trabalhos
-          </a>
-        </div>
-
-        <div className="hero__footnote">
-          <span>30+ anos de experiência</span>
-          <span>Produção própria</span>
-          <span>Atendimento direto</span>
-        </div>
-      </div>
-
-      <div
-        className="hero__visual"
-        aria-label="Bastidores reais da produção da Adry Faixas"
-      >
-        <HeroVideo />
-
-        <div className="hero__visual-note">
-          <span>Bastidores reais da oficina</span>
-          <strong>Produção própria • São Paulo</strong>
+          <p>
+            Produção própria em São Paulo para fachadas, faixas, adesivos,
+            placas, letreiros e envelopamento.
+          </p>
         </div>
       </div>
     </section>
