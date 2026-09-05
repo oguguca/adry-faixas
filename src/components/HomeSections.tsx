@@ -1,6 +1,5 @@
 import Image from "next/image";
 import HeroVideo from "@/components/HeroVideo";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import {
   CONTACT_LINK,
   EMAIL,
@@ -153,63 +152,43 @@ export default function HomeSections() {
   return (
     <>
       <section
-        className="services"
+        className="services section-pad"
         id="servicos"
         aria-labelledby="services-title"
       >
-        <ContainerScroll
-          titleComponent={
-            <header className="services-transition__intro">
+        <div className="section-shell">
+          <header className="section-intro" data-reveal>
+            <div>
               <p className="section-label">Serviços</p>
-
               <h2 id="services-title">O que a Adry faz.</h2>
-
-              <p>
-                Você não precisa chegar sabendo o nome do material. Mostre o
-                espaço, explique o objetivo e a equipe ajuda a definir o caminho.
-              </p>
-            </header>
-          }
-        >
-          <div className="services-transition__panel">
-            <div className="services-transition__panel-head">
-              <strong>ADRY</strong>
-              <span>Comunicação visual · São Paulo</span>
             </div>
 
-            <div className="services-transition__panel-main">
-              <p>Do pedido à rua.</p>
+            <p>
+              Comunicação visual produzida em São Paulo para lojas, empresas,
+              veículos e espaços comerciais. Mostre o que você precisa e a
+              equipe ajuda a definir o melhor caminho.
+            </p>
+          </header>
 
-              <div className="services-transition__index">
-                {SERVICES.map((service, index) => (
-                  <div key={service.title}>
-                    <span aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <strong>{service.title}</strong>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="services-transition__panel-foot">
-              <span>Produção própria</span>
-              <span>Desde 1993</span>
-            </div>
-          </div>
-        </ContainerScroll>
-
-        <div className="services__details section-shell">
           <div className="services-list">
             {SERVICES.map((service, index) => (
-              <article className="service-row" key={service.title} data-reveal>
-                <span className="service-row__number" aria-hidden="true">
+              <article
+                className="service-row"
+                key={service.title}
+                data-reveal
+              >
+                <span
+                  className="service-row__number"
+                  aria-hidden="true"
+                >
                   {String(index + 1).padStart(2, "0")}
                 </span>
+
                 <div className="service-row__title">
                   <h3>{service.title}</h3>
                   <span>{service.use}</span>
                 </div>
+
                 <p>{service.description}</p>
               </article>
             ))}
@@ -217,8 +196,8 @@ export default function HomeSections() {
 
           <div className="section-action" data-reveal>
             <p>
-              Tem outro formato em mente? Mande uma referência e conte o que
-              você precisa.
+              Tem outro formato em mente? Envie uma foto, medida ou referência
+              e conte o que você precisa.
             </p>
 
             <a
