@@ -1,0 +1,52 @@
+SITE NOVO — ADRY FAIXAS (do zero)
+==================================
+
+Como seu repositório no GitHub está vazio agora, é só subir este projeto
+inteiro nele. Não tem conflito de arquivo nem coisa pra apagar.
+
+PASSO A PASSO:
+
+1. Baixe e extraia este zip em uma pasta nova (NÃO dentro da pasta antiga
+   do projeto — comece uma pasta limpa, por exemplo:
+   C:\Users\Guguxta\Desktop\adry-faixas-novo)
+
+2. Abra o terminal dentro dessa pasta e rode:
+
+   npm install
+   npm run dev
+
+   Isso abre o site em http://localhost:3000 pra você conferir antes de
+   publicar.
+
+3. Quando estiver satisfeito, conecte com o GitHub (repositório já existe
+   e está vazio, então isso é seguro):
+
+   git init
+   git remote add origin https://github.com/oguguca/adry-faixas.git
+   git add -A
+   git commit -m "feat: site novo do zero — conceito producao/impressao"
+   git branch -M main
+   git push -u origin main --force
+
+   O --force aqui é seguro porque o repositório remoto já está vazio
+   (você mesmo o esvaziou) — ele só garante que o commit novo vire o
+   ponto de partida do branch main. NÃO reescreve nada além disso, e os
+   seus check-ins diários continuam contando normalmente a partir de
+   agora.
+
+4. Se o domínio adry-faixas.vercel.app já estiver conectado a esse
+   repositório na Vercel, o deploy novo sai sozinho depois do push.
+
+O QUE MUDOU EM RELAÇÃO AO SITE ANTIGO
+=======================================
+- Conceito visual novo, baseado na própria linguagem de quem produz
+  comunicação impressa: marcas de registro/corte, ficha técnica de
+  material por serviço, tipografia grotesca robusta pro título.
+- Removido: sistema de scroll/marquee complexo, CSS duplicado do projeto
+  anterior. Grade de portfólio simples e responsiva no lugar do carrossel.
+- Conteúdo real mantido: os mesmos 5 serviços, os 9 projetos reais do
+  portfólio, os mesmos textos de FAQ e "Sobre", WhatsApp/Instagram/e-mail
+  reais.
+- Só não consigo gerar um preview visual daqui do meu ambiente porque a
+  fonte do Google (Archivo/Inter) é bloqueada na minha rede sandbox — vai
+  carregar normalmente no seu `npm run dev` ou no deploy da Vercel.
