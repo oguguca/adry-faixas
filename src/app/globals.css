@@ -950,22 +950,22 @@ p {
 .process-step__number {
   display: block;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--orange-ink);
   margin-bottom: 14px;
 }
 
 .process-step h3 {
   font-size: 18px;
-  margin-bottom: 8px;
+  white-space: nowrap;
+  margin-bottom: 10px;
 }
 
 .process-step p {
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
   color: rgba(32, 28, 24, 0.68);
 }
-
 .process__actions {
   margin-top: 36px;
 }
