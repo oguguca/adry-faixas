@@ -1,0 +1,73 @@
+.scroll-float {
+  width: 100%;
+
+  /* IMPORTANTE:
+     não corta mais acentos como ê, ã, á */
+  overflow: visible;
+
+  padding-top: 0.28em;
+  padding-bottom: 0.16em;
+
+  margin-top: -0.18em;
+  margin-bottom: -0.12em;
+}
+
+.scroll-float-text {
+  display: block;
+  width: 100%;
+
+  font-family: var(--font-about), sans-serif;
+
+  font-size: clamp(46px, 5vw, 82px);
+  font-weight: 400;
+
+  /* um pouco mais de espaço vertical para os acentos */
+  line-height: 1.1;
+
+  letter-spacing: -0.025em;
+  text-align: center;
+
+  color: var(--ink);
+
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.scroll-float-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.scroll-float-space {
+  display: inline-block;
+}
+
+.char {
+  display: inline-block;
+
+  /* impede qualquer recorte individual */
+  overflow: visible;
+
+  will-change: transform, opacity;
+}
+
+@media (max-width: 900px) {
+  .scroll-float-text {
+    font-size: clamp(42px, 7vw, 66px);
+  }
+}
+
+@media (max-width: 600px) {
+  .scroll-float-text {
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

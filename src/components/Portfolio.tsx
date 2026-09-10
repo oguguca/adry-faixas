@@ -57,7 +57,7 @@ export default function Portfolio() {
       <div className="section-shell">
         <div className="portfolio__heading">
           <div className="section-heading">
-            <span className="mono-tag">Projetos entregues</span>
+            
             <h2>Do nosso trabalho<br />para a sua cidade.</h2>
           </div>
           <p className="portfolio__intro">
