@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Adry Faixas — Comunicação visual em São Paulo",
   description:
-    "Faixas, fachadas, adesivos, placas e letreiros. Mais de 30 anos de produção própria em São Paulo, do primeiro WhatsApp à peça instalada.",
+    "Faixas, fachadas, adesivos, placas e letreiros. Mais de 30 anos de produção própria em São Paulo, do primeiro contato à peça instalada.",
   metadataBase: new URL("https://adry-faixas.vercel.app"),
   openGraph: {
     title: "Adry Faixas — Comunicação visual em São Paulo",

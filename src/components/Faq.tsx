@@ -4,7 +4,7 @@ export default function Faq() {
   return (
     <section className="faq section-shell" id="duvidas" tabIndex={-1}>
       <div className="section-heading">
-        <span className="mono-tag">Dúvidas</span>
+        
         <h2>Antes de chamar no WhatsApp.</h2>
       </div>
 

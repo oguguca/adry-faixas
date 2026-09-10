@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="hero" id="inicio" tabIndex={-1}>
       <div className="section-shell hero__inner">
         <div>
-          <p className="hero__ticket mono-tag">Comunicação visual em São Paulo</p>
+          
 
           <h1>
             Sua marca em destaque.

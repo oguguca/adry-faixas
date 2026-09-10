@@ -7,7 +7,7 @@ export const TRUST_ITEMS = [
 
 export const SERVICES = [
   {
-    title: "Faixas & banners",
+    title: "Faixas e banners",
     description:
       "Divulgação para promoções, inaugurações, eventos e comunicação de rua, no tamanho que o seu espaço pede.",
     material: "Lona 440g",
@@ -25,7 +25,7 @@ export const SERVICES = [
     material: "Vinil adesivo",
   },
   {
-    title: "Placas & sinalização",
+    title: "Placas e sinalização",
     description:
       "Peças comerciais e informativas para orientar, divulgar e comunicar com leitura rápida e acabamento profissional.",
     material: "PVC / acrílico",
@@ -119,24 +119,28 @@ export const PROCESS = [
     title: "Mande sua ideia",
     description:
       "Envie uma foto, referência, medidas aproximadas e explique onde a comunicação será usada.",
+    image: "/images/etapa1.png",
   },
   {
     number: "02",
     title: "A gente orienta",
     description:
       "A equipe ajuda a definir formato, material e acabamento de acordo com o espaço e a necessidade.",
+    image: "/images/etapa2.png",
   },
   {
     number: "03",
     title: "Produzimos",
     description:
       "O projeto entra em produção com acompanhamento de perto e atenção ao acabamento.",
+    image: "/images/etapa3.png",
   },
   {
     number: "04",
     title: "Entregamos ou instalamos",
     description:
       "A peça segue pronta para ocupar o espaço, divulgar seu negócio e trabalhar pela sua marca.",
+    image: "/images/etapa4.png",
   },
 ];
 

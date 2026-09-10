@@ -5,9 +5,7 @@ export default function Contact() {
     <section className="contact section--dark" id="contato" tabIndex={-1}>
       <div className="section-shell contact__inner">
         <div>
-          <span className="mono-tag">
-            Vamos conversar
-          </span>
+          
           <h2>Vamos tirar sua ideia do papel?</h2>
           <p className="contact__lead">
             Envie uma foto ou referência, as medidas aproximadas e o local

@@ -5,7 +5,7 @@ export default function Services() {
   return (
     <section className="services section-shell" id="servicos" tabIndex={-1}>
       <div className="section-heading">
-        <span className="mono-tag">O que produzimos</span>
+        
         <h2>O que sua marca precisa?</h2>
         <p className="section-desc">
           Da faixa de promoção à fachada do seu negócio. Conte onde a peça
@@ -18,7 +18,7 @@ export default function Services() {
           <article className="service-row" key={service.title}>
             <div className="service-row__heading">
               <h3 className="service-row__title">{service.title}</h3>
-              <span className="service-row__material">{service.material}</span>
+              
             </div>
             <p className="service-row__desc">{service.description}</p>
             <a
