@@ -269,23 +269,19 @@ p {
 }
 
 .brand {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  font-family: var(--font-headline);
-  font-weight: 800;
-  font-size: 21px;
-  letter-spacing: -0.01em;
-  color: var(--white);
+  display: block;
+  width: 150px;
+  height: 52px;
   flex-shrink: 0;
-  white-space: nowrap;
+  overflow: hidden;
 }
 
-.brand span {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 11px;
-  color: var(--orange);
+.brand__logo {
+  width: 100%;
+  height: 100%;
+  /* Crop only the empty vertical margins of the square source image. */
+  object-fit: cover;
+  object-position: center;
 }
 
 .desktop-nav {
@@ -395,10 +391,8 @@ p {
 
 @media (max-width: 480px) {
   .brand {
-    font-size: 26px;
-  }
-  .brand span {
-    display: none;
+    width: 112px;
+    height: 44px;
   }
 }
 

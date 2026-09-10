@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { CONTACT_LINK } from "@/lib/constants";
 
 const NAV_ITEMS = [
@@ -75,7 +76,14 @@ export default function Header() {
           aria-label="Adry Faixas — início"
           onClick={() => setOpen(false)}
         >
-          Adry <span>comunicação visual</span>
+          <Image
+            className="brand__logo"
+            src="/images/adry-header.png"
+            alt="Adry Comunicação Visual"
+            width={150}
+            height={150}
+            priority
+          />
         </a>
 
         <nav className="desktop-nav" aria-label="Navegação principal">
