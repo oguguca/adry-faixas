@@ -43,21 +43,20 @@ export default function Hero() {
         <figure className="hero__project">
           <div className="hero__visual reg-frame">
             <Image
-              src="/images/projeto-fachada-brindes-boni.webp"
-              alt="Fachada Brindes do Boni produzida pela Adry, com painel preto e detalhes em amarelo e vermelho"
-              width={900}
-              height={506}
-              priority
-              sizes="(max-width: 899px) 100vw, 50vw"
-            />
-          </div>
-          <figcaption className="hero__visual-caption">
-            <div>
-              <span className="mono-tag">Fachada comercial</span>
-              <strong>Brindes do Boni</strong>
-            </div>
-            <span className="hero__project-credit">Feito pela Adry</span>
-          </figcaption>
+  src="/images/fachada-adry-real-hq.webp"
+  alt="Fachada da própria Adry Comunicação Visual, com letreiro, faixas e placas produzidos pela equipe"
+  fill
+  priority
+  sizes="(max-width: 899px) 100vw, 50vw"
+/>
+</div>
+<figcaption className="hero__visual-caption">
+  <div>
+    <span className="mono-tag">Nossa fachada</span>
+    <strong>Adry Comunicação Visual</strong>
+  </div>
+  <span className="hero__project-credit">Feito pela Adry</span>
+</figcaption>
         </figure>
       </div>
     </section>
