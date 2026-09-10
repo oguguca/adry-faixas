@@ -8,8 +8,8 @@ export default function Services() {
         
         <h2>O que sua marca precisa?</h2>
         <p className="section-desc">
-          Da faixa de promoção à fachada do seu negócio. Conte onde a peça
-          vai ficar; a gente ajuda a escolher material, formato e acabamento.
+          Vamos transformar a identidade visual do seu negócio. Conte onde a peça
+          vai ficar, a gente ajuda a escolher material, formato e acabamento.
         </p>
       </div>
 
