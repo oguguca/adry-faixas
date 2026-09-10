@@ -52,10 +52,10 @@ export default function Hero() {
 </div>
 <figcaption className="hero__visual-caption">
   <div>
-    <span className="mono-tag">Nossa fachada</span>
+   
     <strong>Adry Comunicação Visual</strong>
   </div>
-  <span className="hero__project-credit">Feito pela Adry</span>
+
 </figcaption>
         </figure>
       </div>
